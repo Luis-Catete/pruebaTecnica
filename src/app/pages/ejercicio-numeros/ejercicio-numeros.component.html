@@ -1,0 +1,34 @@
+
+<div class="container">
+  <form [formGroup]="formulario" (ngSubmit)="contarRepeticiones()">
+    <mat-card>
+      <mat-card-content>
+        <div class="formulario">
+          <h2>Contador de Repeticiones</h2>
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Ingrese la cadena de números separados por comas:</mat-label>
+              <input type="text" formControlName="cadena" class="form-control" required matInput placeholder="1,2,3,4"
+                name="cadena">
+            </mat-form-field>
+            <div *ngIf="formulario.get('cadena').hasError('pattern')" class="error">
+              Ingrese solo números y comas.
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary space" [disabled]="formulario.invalid"  mat-stroked-button color="primary">Contar Repeticiones</button>
+          <div *ngIf="resultados" class="space">
+            <h3>Resultados:</h3>
+
+            <mat-list>
+              <mat-list-item *ngFor="let r of resultados">
+                <div matListItemTitle>{{ r.numero }} - {{ r.repeticiones }}</div>
+              </mat-list-item>
+            </mat-list>
+
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</div>

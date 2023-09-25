@@ -1,0 +1,27 @@
+<div class="dialogo">
+    <mat-toolbar>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg"
+            style="height: 50px; width: 80px;" alt="">
+        <span>{{data.name | titlecase}}</span>
+    </mat-toolbar>
+    <mat-card class="example-card" *ngIf="cargado">
+
+        <mat-card-header>
+            <mat-card-subtitle>N° {{data.position}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <img mat-card-image src="{{pokemonData.sprites.front_default}}" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+            <mat-chip-listbox>
+                <mat-chip-option *ngFor="let type of pokemonType" selected>
+                    {{type}}</mat-chip-option>
+
+                <mat-chip-option selected>Altura: {{pokemonData.height}}</mat-chip-option>
+                <mat-chip-option selected>Peso: {{pokemonData.weight}} kg</mat-chip-option>
+            </mat-chip-listbox>
+        </mat-card-content>
+        <mat-card-actions>
+            <button class="aceptar" (click)="cerrarDialogo()" mat-stroked-button color="primary">Aceptar</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

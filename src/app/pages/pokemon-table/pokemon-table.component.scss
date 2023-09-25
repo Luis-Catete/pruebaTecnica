@@ -1,0 +1,40 @@
+.container {
+    width: 100%;
+    margin-top: 25px;
+    text-align: center;
+}
+
+table {
+    min-width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.header {
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.Select:hover {
+    cursor: pointer;
+    background-color: cornflowerblue;
+    color: whitesmoke;
+    
+}
+
+tr:nth-child(even) {
+    background-color: #c70039;
+    color: white
+}
+
+.cell{
+    text-align: center;
+}
+
+::ng-deep mat-paginator{
+    width: 80%;
+    margin: auto;
+}
+

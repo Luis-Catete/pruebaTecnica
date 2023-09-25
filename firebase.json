@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "prueba-luis-catete",
+    "public": "dist/prueba",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

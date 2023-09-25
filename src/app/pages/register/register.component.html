@@ -1,0 +1,51 @@
+<form [formGroup]="formReg" (ngSubmit)="onSubmit()">
+    <div class="form-wrapper">
+      <div class="form-container card">
+        <div class="form-header">
+          <h3 class="form-title">Regístrate</h3>
+        </div>
+  
+        <div class="form-body">
+          <mat-form-field class="example-full-width justifier">
+            <mat-label>Nombre</mat-label>
+            <input matInput  formControlName="nombre" required>
+            <mat-error *ngIf="formReg.get('nombre').hasError('required')">El nombre es obligatorio.</mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Telefono</mat-label>
+            <span matPrefix>+52 &nbsp;</span>
+            <input type="tel" matInput placeholder="555-555-1234" formControlName="telefono" aria-label="Teléfono" required>
+            <mat-icon matSuffix>mode_edit</mat-icon>
+            <mat-error *ngIf="formReg.get('telefono').hasError('required')">El teléfono es obligatorio.</mat-error>
+            <mat-error *ngIf="formReg.get('telefono').hasError('pattern')">El formato del teléfono no es válido.</mat-error>
+          </mat-form-field>
+          <mat-form-field class="justifier">
+            <input matInput [matDatepicker]="picker" formControlName="fecha" id="fecha" aria-label="Fecha de Nacimiento">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="formReg.get('fecha').hasError('required')">La fecha de nacimiento es obligatoria.</mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width justifier">
+            <input matInput placeholder="Email" formControlName="email" aria-label="Email" required>
+            <mat-error *ngIf="formReg.get('email').hasError('required')">El correo electrónico es obligatorio.</mat-error>
+            <mat-error *ngIf="formReg.get('email').hasError('email')">El formato del correo electrónico no es válido.</mat-error>
+          </mat-form-field>
+          <mat-form-field class="justifier">
+            <input matInput placeholder="Password" id="password" type="password" formControlName="password" aria-label="Contraseña" required>
+            <mat-error *ngIf="formReg.get('password').hasError('required')">La contraseña es obligatoria.</mat-error>
+            <mat-error *ngIf="formReg.get('password').hasError('minlength')">La contraseña debe tener al menos 6 caracteres.</mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div class="form-footer">
+          <button mat-raised-button class="btn custom-btn" type="submit">
+            <mat-icon>add</mat-icon> Registrarse
+          </button>
+        </div>
+        <div class="additional-link">
+          <a href="" routerLink="/login" title="Iniciar Sesión">¿Ya tienes una cuenta? <strong>Login</strong></a>
+        </div>
+      </div>
+    </div>
+  </form>
+  

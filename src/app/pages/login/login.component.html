@@ -1,0 +1,94 @@
+<!--h2>Login de usuario</h2>
+<form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control" formControlName="email">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password">
+    </div>
+    <input type="submit" value="Enviar">
+</form>
+<button class="btn btn-info" (click)="onClick()">Login With Google</button
+
+<body>
+    <div class="form-wraper">
+        <div class="form-container card">
+            <div class="form-header">
+                <img src="https://expo.thelogisticsworld.com/wp-content/themes/theme-summitexpo/directorio/assets/logos/8edfe4c0-5880-4a7f-b3d7-d95740845c59.png"
+                    class="main-icon" alt="">
+                <h2 class="center">LOGIN</h2>
+            </div>
+
+            <div class="form-body">
+                <mat-form-field class="justifier" appearance="outline">
+                    <input matInput placeholder="Email" text="email" type="email" class="form-input" formControlName="email">
+                </mat-form-field>
+                <mat-form-field class="justifier" appearance="outline">
+                    <input matInput placeholder="Password" text="password" class="form-input"
+                        formControlName="password">
+                </mat-form-field>
+            </div>
+
+            <div class="form-footer">
+                <button mat-raised-button class="btn custom-btn">
+                    <mat-icon>input</mat-icon> Login
+                </button>
+                <div class="txt">
+                    OR
+                </div>
+                <button mat-raised-button (click)="onClick()">
+                    <img src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-logo-png.png" alt=""
+                        class="google-icon"> Login With Google
+                </button>
+            </div>
+            <div class="additional-link">
+                <a href="" routerLink="/register">¿No tienes cuenta? <strong>Crea una aquí</strong></a>
+            </div>
+        </div>
+    </div>
+</body>-->
+
+<body>
+    <div class="form-wraper">
+      <div class="form-container card">
+        <div class="form-header">
+          <img src="https://expo.thelogisticsworld.com/wp-content/themes/theme-summitexpo/directorio/assets/logos/8edfe4c0-5880-4a7f-b3d7-d95740845c59.png"
+            class="main-icon" alt="">
+          <h2 class="center">LOGIN</h2>
+        </div>
+  
+        <div class="form-body">
+          <form [formGroup]="formLogin" (submit)="onSubmit()">
+            <mat-form-field class="justifier">
+              <input matInput placeholder="Email" type="email" formControlName="email" required
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">
+              <mat-error *ngIf="formLogin.get('email').hasError('required')">El correo electrónico es obligatorio.</mat-error>
+              <mat-error *ngIf="formLogin.get('email').hasError('email')">El formato del correo electrónico no es válido.</mat-error>
+            </mat-form-field>
+            <mat-form-field class="justifier">
+              <input matInput placeholder="Password" type="password" formControlName="password" required>
+              <mat-error *ngIf="formLogin.get('password').hasError('required')">La contraseña es obligatoria.</mat-error>
+            </mat-form-field>
+            <div class="form-footer">
+              <button mat-raised-button class="btn custom-btn" type="submit">
+                <mat-icon>input</mat-icon> Login
+              </button>
+              <div class="txt">
+                OR
+              </div>
+              <button mat-raised-button (click)="onLoginWithGoogle()">
+                <img src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-logo-png.png" alt=""
+                  class="google-icon"> Login With Google
+              </button>
+            </div>
+          </form>
+          <div class="additional-link">
+            <a href="" routerLink="/register">¿No tienes cuenta? <strong>Crea una aquí</strong></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  
